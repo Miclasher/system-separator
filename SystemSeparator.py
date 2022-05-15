@@ -1,11 +1,11 @@
-import fileMover
-import wallpaperSetter
-import fileDeMover
+from fileMover import moveFiles
+from wallpaperSetter import setWallpaper
+from fileDeMover import demoveFiles
 from os import listdir, getlogin
 username = getlogin()
 myfile = open(r'C:\Users\\{0}\Documents\SystemSeparatorCfgs\last.txt'.format(username))
 lastConfig = myfile.read()
-fileDeMover.demoveFiles(lastConfig)
+demoveFiles(lastConfig)
 myfile.close()
 myfile = open(r'C:\Users\\{0}\Documents\SystemSeparatorCfgs\last.txt'.format(username), 'w')
 myfile.close()
@@ -18,8 +18,8 @@ while a > 0:
         myfile = open(r'C:\Users\\{0}\Documents\SystemSeparatorCfgs\last.txt'.format(username), 'w')
         myfile.write('{0}'.format(WantedConfig))
         myfile.close
-        fileMover.moveFiles(WantedConfig)
-        wallpaperSetter.setWallpaper(WantedConfig)
+        moveFiles(WantedConfig)
+        setWallpaper(WantedConfig)
         a = 0
     else:
         print("Config not found")
