@@ -1,0 +1,2 @@
+import fileMover
+fileMover.moveFiles()
