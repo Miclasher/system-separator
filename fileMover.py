@@ -1,9 +1,8 @@
-from operator import le
 import os
 import shutil
-from unipath import Path
-dir = Path(r"C:\Users\Miclasher\Desktop\testconfig")
-target = dir.parent
+dir = r"C:\Users\Miclasher\Desktop\testconfig"
+target = r"C:\Users\Miclasher\Desktop"
 tempArray = os.listdir(dir)
+tempArray.remove("wallpaper.jpg")
 for i in range(len(tempArray)):
     shutil.move(dir + '\\' + tempArray[i], target)
