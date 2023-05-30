@@ -11,16 +11,16 @@ myfile = open(r'C:\Users\\{0}\Documents\SystemSeparatorCfgs\last.txt'.format(use
 myfile.close()
 configList = listdir(r'C:\Users\\{0}\Documents\SystemSeparatorCfgs'.format(username))
 configList.remove("last.txt")
-a = 1
-while a > 0:
-    WantedConfig = input("What do you want to do?({0})".format(configList))
+a = True
+while a == True:
+    WantedConfig = input("What config do you want to load?({0})".format(configList))
     if WantedConfig in configList:
         myfile = open(r'C:\Users\\{0}\Documents\SystemSeparatorCfgs\last.txt'.format(username), 'w')
         myfile.write('{0}'.format(WantedConfig))
         myfile.close
         moveFiles(WantedConfig)
         setWallpaper(WantedConfig)
-        a = 0
+        a = False
     else:
         print("Config not found")
-        a = 1
+        a = True
